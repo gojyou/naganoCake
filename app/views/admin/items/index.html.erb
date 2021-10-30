@@ -1,0 +1,8 @@
+<h1>商品一覧</h1>
+<% @items.each do |item| %>
+<p>商品名<%= item.name %></p>
+<p>価格￥<%= item.price %></p>
+<p>ジャンル  <%= item.genre.name %></p>
+<p>販売ステータス<%= item.is_active %></p>
+<%= link_to '詳細',item_path(item) %>
+<% end %>

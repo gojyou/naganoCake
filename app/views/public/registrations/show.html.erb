@@ -1,0 +1,8 @@
+<% @public_customers.each do |customer| %>
+<p>氏名　<%= customer.last_name %><%= customer.first_name %></p>
+<P>カナ　<%= customer.last_name_kana %><%= customer.first_name_kana %></P>
+<p>郵便番号　<%= customer.postal_code %></p>
+<p>住所　<%= customer.address %></p>
+<p>電話番号　<%= customer.telephone_number %>　</p>
+<p><%= customer.email %></p>
+<% end %>

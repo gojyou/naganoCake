@@ -1,0 +1,7 @@
+<h1>商品詳細</h1>
+<%= attachment_image_tag @item, :image, format:'jpg' %>
+<p>商品名  <%= @item.name %></p>
+<p>商品説明  <%= @item.introduction %></p>
+<p>ジャンル  <%= @item.genre.name %></p>
+<p>価格　<%= @item.price %></p>
+<p>販売ステータス　　<%= @item.is_active %></p>

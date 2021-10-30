@@ -1,0 +1,9 @@
+
+<h1>ジャンル</h1>
+<% @genres.each do |genre| %>
+<p><%= genre.name %></p>
+<p><%= genre.created_at %></p>
+<p><%= genre.updated_at %></p>
+ <%= link_to "編集", edit_genre_path(genre) %>
+ <%= link_to"削除", genre_path(genre),method: :delete %>
+<% end %>

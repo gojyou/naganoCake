@@ -1,0 +1,21 @@
+<h1>商品編集</h1>
+<%= form_with model:@item, local:true do |t| %>
+<p>イメージ</p>
+<%= t.attachment_field :image %>
+<p>商品名</p>
+<%= t.text_field :name %>
+<p>商品説明</p>
+<%= t.text_field :introduction %>
+<p>ジャンル</p>
+<%= t.label :genre_id %>
+<%= t.collection_select :genre_id, Genre.all, :id, :name %>
+<p>価格</p>
+<%= t.text_field :price %>
+<p>販売ステータス</p>
+<%= t.label :is_active,'販売中', value: true %>
+<%= t.radio_button :is_active, :true %>
+<%= t.label :is_active, '販売停止中', value: false %>
+<%= t.radio_button :is_active, :false %>
+
+<%= t.submit'更新' %>
+<% end %>

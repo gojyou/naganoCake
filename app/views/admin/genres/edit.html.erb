@@ -1,0 +1,5 @@
+<h1>ジャンル編集</h1>
+<%=form_with model:@genre do |t| %>
+<%= t.text_field :name %>
+<%= t.submit '保存' %>
+<% end %>

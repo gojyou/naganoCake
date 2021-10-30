@@ -1,0 +1,20 @@
+<h1>新商品</h1>
+<%= form_with model:@item, local:true do |t| %>
+<h4>商品名</h4>
+<%= t.text_field :name %>
+<h4>ジャンル</h4>
+<%= t.label :genre_id %>
+<%= t.collection_select :genre_id, Genre.all, :id, :name %>
+<h4>イメージ</h4>
+<%= t.attachment_field :image %>
+<h4>商品説明</h4>
+<%= t.text_field :introduction %>
+<h4>価格</h4>
+<%= t.text_field :price %>
+<h4>販売ステータス</h4>
+<%= t.label :is_active,'販売中', value: true %>
+<%= t.radio_button :is_active, :true %>
+<%= t.label :is_active, '販売停止中', value: false %>
+<%= t.radio_button :is_active, :false %>
+<%= t.submit'投稿' %>
+<% end %>
