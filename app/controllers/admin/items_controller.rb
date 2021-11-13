@@ -5,15 +5,17 @@ class Admin::ItemsController < ApplicationController
 
   def create
   item=Item.new(item_params)
-  item.save!
-  redirect_to items_path
+  item.save
+  redirect_to admin_item_path(item)
   end
 
   def index
-    @items=Item.all
+
+    @items=Item.page(params[:page]).reverse_order
   end
   def show
     @item=Item.find(params[:id])
+    @cart_item=CartItem.new
   end
 
   def edit
@@ -23,7 +25,7 @@ class Admin::ItemsController < ApplicationController
   def update
     item=Item.find(params[:id])
     item.update(item_params)
-    redirect_to item_path(item.id)
+    redirect_to admin_item_path(item.id)
   end
   private
 

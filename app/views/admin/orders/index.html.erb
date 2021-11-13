@@ -1,0 +1,12 @@
+<h1>注文履歴一覧</h1>
+
+<p><% @orders.each do |t| %>
+注文日<%= t.updated_at %>
+購入者<%= t.customer.last_name %> <%= t.customer.first_name %>
+注文個数<%= t.order_details.all.sum(:quantity) %>
+</p>
+
+
+<%= link_to"注文詳細", edit_admin_order_path(t) %>
+<% end %>
+

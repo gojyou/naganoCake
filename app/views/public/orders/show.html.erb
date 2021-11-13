@@ -1,0 +1,20 @@
+<h1>注文詳細</h1>
+<h2>注文情報</h2>
+
+注文日<%= @order.updated_at %>
+配送先<%= @order.postal_code %>
+      <%= @order.address %>
+      <%= @order.delivery_name %>
+ 支払方法<%= @order.payment_method %>
+
+ <h2>注文内容</h2>
+<% @order_details.each do |t| %>
+<%= t.item.name %>
+単価<%= t.unit_price %>
+数量<%= t.quantity %>
+小計<%= t.unit_price * t.quantity %>
+<% end %>
+<h2>請求情報</h2>
+商品合計<%= @order.billing_amount - 800 %>
+配送料800円
+ご請求金額<%= @order.billing_amount %>

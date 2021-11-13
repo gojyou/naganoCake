@@ -1,5 +1,5 @@
-#module Public
- # def self.table_name_prefix
-   # 'public_'
- # end
-#end
+module Public
+  def self.table_name_prefix
+    'public_'
+  end
+end

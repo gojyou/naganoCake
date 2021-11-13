@@ -1,0 +1,7 @@
+<h1>配送先編集</h1>
+<%= form_with model:@address,url:public_addresses,local:true do |t| %>
+<p>郵便番号<%= t.text_field :postal_code %></p>
+<p>住所 <%= t.text_field :address %></p>
+<p>宛名 <%= t.text_field :name %><p/>
+<%= t.submit '保存'　%>
+<% end %>

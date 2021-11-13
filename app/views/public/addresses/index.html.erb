@@ -1,0 +1,9 @@
+<h1>配送先一覧</h1>
+
+<% @addresses.each do |address| %>
+<%= address.postal_code %>
+<%= address.address %>
+<%= address.name %>
+<%= link_to '編集',edit_public_address_path(address) %>
+<%= link_to'削除' ,public_address_path(address), method: :delete %>
+<% end %>

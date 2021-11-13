@@ -1,9 +1,24 @@
 
-<h1>ジャンル</h1>
+<h1>ジャンル一覧・追加</h1>
+
+<%= form_with model: @genre,url: admin_genres_path, local:true do |t| %>
+<%= t.text_field :name %>
+<%= t.submit'投稿' %>
+<% end %>
+
+<table>
+ <tr>
+  <th>ジャンル名</th>
+  <th>  </th>
+ </tr>
+</table>
+
 <% @genres.each do |genre| %>
-<p><%= genre.name %></p>
-<p><%= genre.created_at %></p>
-<p><%= genre.updated_at %></p>
- <%= link_to "編集", edit_genre_path(genre) %>
- <%= link_to"削除", genre_path(genre),method: :delete %>
+<table>
+ <tr>
+
+<th><%= genre.name %></th>
+<th> <%= link_to "編集", edit_admin_genre_path(genre) %></th>
+ </tr>
+</table>
 <% end %>

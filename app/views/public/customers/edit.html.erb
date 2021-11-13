@@ -1,0 +1,13 @@
+<h2>編集画面</h2>
+<%= form_with model:@customer,url: public_customers_update_path, local:true do |t| %>
+<table>
+<tr><th>氏名</th>　<td><%= t.text_field :last_name %> <%= t.text_field :first_name %></td></tr>
+<tr><th>カナ</th>　<td><%= t.text_field :last_name_kana %> <%= t.text_field :first_name_kana %></td></tr>
+<tr><th>郵便番号</th><td><%= t.text_field :postal_code %></td></tr>
+<tr><th>住所</th>　<td><%= t.text_field :address %></td></tr>
+<tr><th>電話番号</th><td><%= t.text_field :telephone_number %></td></tr>
+<tr><th>メールアドレス</th>　<td><%= t.email_field :email %></td></tr>
+</table>
+<%= t.submit"更新" %>
+<% end %>
+<%= link_to"退会",public_customers_mypage_withdrawal_path %>

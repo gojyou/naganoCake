@@ -1,0 +1,26 @@
+<h1>注文履歴一覧</h1>
+
+
+<table>
+
+<tr>
+  <th>注文日</th>
+<th>購入者</th>
+<th>注文個数</th>
+<th>詳細画面</th>
+</tr>
+</table>
+
+<% @orders.each do |t| %>
+<table>
+<tr>
+  <th><%= t.updated_at %></th>
+<th><%= t.customer.last_name %> <%= t.customer.first_name %></th>
+<th><%= t.order_details.all.sum(:quantity) %></th>
+<th><%= link_to"注文詳細", edit_admin_order_path(t) %></th>
+</tr>
+</table>
+
+
+<% end %>
+<%= paginate @orders %>

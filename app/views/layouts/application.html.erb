@@ -10,23 +10,49 @@
   </head>
   <header>
         <% if public_customer_signed_in? %>
-        <%= image_tag 'パンロゴ.jpg' %>
-         <li>
-      <%= link_to "マイページ", public_customer_path(current_public_customer.id) %>
+       <h1 class="headline"> <%= image_tag 'パンロゴ.jpg' %></h1>
+       <nav> <ul> <li>
+      <%= link_to "マイページ", public_customers_path %>
     </li>
         <li>
-      <%= link_to "About",public_about_path %>
+      <%= link_to "About",about_path %>
     </li>
     <li>
       <%=link_to "商品一覧", public_items_path %>
     </li>
+     <li>
+      <%= link_to "カート", public_cart_items_path %>
+    </li>
       <li>
         <%= link_to "ログアウト", destroy_public_customer_session_path, method: :delete %>
-      </li>
+      </li></ul></nav>
+      <% elsif admin_signed_in? %>
+       <h1 class="headline"><%= image_tag 'パンロゴ.jpg' %></h1>
+      <nav><ul> <li>
+      <%=link_to "商品一覧", admin_items_path %>
+    </li>
+
+     <li>
+      <%=link_to "会員一覧", admin_customers_path %>
+    </li>
+     <li>
+      <%=link_to "注文履歴一覧", admin_path %>
+    </li>
+
+     <li>
+      <%=link_to "ジャンル一覧", admin_genres_path %>
+    </li>
+
+
+     <li>
+      <%=link_to "ログアウト",  destroy_admin_session_path, method: :delete %>
+    </li></ul></nav>
+
     <% else %>
-    <%= image_tag 'パンロゴ.jpg' %>
-    <li>
-      <%= link_to "About",public_about_path %>
+
+    <h1 class="headline"><%= image_tag 'パンロゴ.jpg' %></h1>
+    <nav><ul><li>
+      <%= link_to "About",about_path %>
     </li>
     <li>
       <%=link_to "商品一覧", public_items_path %>
@@ -36,8 +62,10 @@
       </li>
       <li>
         <%= link_to "ログイン", new_public_customer_session_path %>
-      </li>
+      </li></ul></nav>
     <% end %>
+
+
 
   </header>
 
