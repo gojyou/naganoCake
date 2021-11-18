@@ -21,11 +21,15 @@ end
 def withdrawal
 @customer=current_public_customer
 end
+
 def withdrawalprcess
   @customer=current_public_customer
- 
+   @customer.update(is_active: false)
+   reset_session
+
+
     redirect_to  root_path
-  
+
 end
 
 

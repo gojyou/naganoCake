@@ -43,7 +43,8 @@ class Public::OrdersController < ApplicationController
     order_detail.item_id=cart_item.item_id
     order_detail.quantity=cart_item.amount
     order_detail.unit_price=(cart_item.item.price * 1.1).floor
-    order_detail.save
+    order_detail.save!
+
   end
     current_public_customer.cart_items.destroy_all
 
@@ -51,7 +52,7 @@ class Public::OrdersController < ApplicationController
   end
 
 def index
-  @orders=Order.all
+  @orders=current_public_customer.orders
 
 end
   def complecation
